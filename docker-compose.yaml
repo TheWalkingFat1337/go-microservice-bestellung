@@ -1,0 +1,21 @@
+version: '3.8'
+services:
+  mysql_user:
+    image: mysql:latest
+    environment:
+      MYSQL_DATABASE: 'user'
+      MYSQL_ROOT_PASSWORD: 1234
+    ports:
+      - '5432:3306'
+    expose:
+      - '3306'
+
+  mysql_bestellung:
+    image: mysql:latest
+    environment:
+      MYSQL_DATABASE: 'bestellung'
+      MYSQL_ROOT_PASSWORD: 1234
+    ports:
+      - '9876:3306'
+    expose:
+      - '3306'
