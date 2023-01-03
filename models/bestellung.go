@@ -2,11 +2,10 @@ package models
 
 import (
 	"gorm.io/datatypes"
-	"gorm.io/gorm"
 )
 
 type Bestellung struct {
-	gorm.Model
+	Id           int            `json:"id" gorm:"primary_key"`
 	Artikelbez   string         `json:"artikelbez"`
 	Artikelnr    int            `json:"artikelnr"`
 	Kundennr     int            `json:"kundennr"`
