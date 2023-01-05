@@ -9,7 +9,7 @@ import (
 var DB *gorm.DB
 
 func Connect() {
-	dsn := "root:1234@tcp(localhost:9876)/bestellung?parseTime=true"
+	dsn := "root:1234@tcp(host.docker.internal:9876)/bestellung?parseTime=true"
 	db, err := gorm.Open(mysql.New(mysql.Config{
 		DSN:                       dsn,   // data source name
 		DefaultStringSize:         256,   // default size for string fields
