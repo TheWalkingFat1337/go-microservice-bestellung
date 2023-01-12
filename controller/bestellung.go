@@ -9,10 +9,16 @@ import (
 	"gorm.io/datatypes"
 )
 
-func GetBestellung(c *gin.Context) {
+func GetBestellungen(c *gin.Context) {
 	bestellungen := []models.Bestellung{}
 	config.DB.Find(&bestellungen)
 	c.JSON(200, &bestellungen)
+}
+
+func GetBestellung(c *gin.Context) {
+	var bestellung models.Bestellung
+	config.DB.Where("id = ?", c.Param("id")).Find(&bestellung)
+	c.JSON(200, &bestellung)
 }
 
 func CreateBestellung(c *gin.Context) {
