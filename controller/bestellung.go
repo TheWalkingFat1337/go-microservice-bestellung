@@ -16,7 +16,11 @@ func GetBestellung(c *gin.Context) {
 }
 
 func CreateBestellung(c *gin.Context) {
-	bestellung := models.Bestellung{Bestelldatum: datatypes.Date(time.Now())}
+	//var name string = http.GET("http://restapi_user:1234/name/")
+	bestellung := models.Bestellung{
+		Bestelldatum: datatypes.Date(time.Now()),
+		//Kundennr: name
+	}
 	c.BindJSON(&bestellung)
 	config.DB.Create(&bestellung)
 	c.JSON(200, &bestellung)
